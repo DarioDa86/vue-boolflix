@@ -1,28 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header @search="selectedMethod" />
+    <Films :transferFilms="selectedFilms" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header.vue';
+import Films from './components/Films.vue';
+import axios from 'axios';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    Header,
+    Films
+  },
+  data() {
+    return {
+      films:[],
+      selectedFilms: ""
+    }
+  },
+  methods: {
+    selectedMethod(text) {
+      this.selectedFilms = text;
+      axios.get('https://api.themoviedb.org/3/search/movie?api_key=e99307154c6dfb0b4750f6603256716d&query=ritorno+al+futuro')
+          .then( (res) => {
+            this.films = res.data.results;
+          } )
+    }
+  },
+  // created() {
+	// 	axios
+	// 		.get("https://api.themoviedb.org/3/movie/550?api_key=6e1f2787601fcd4236204e683f91fbbf")
+	// 		.then( (res) => {
+	// 			this.films = res.data;
+	// 		});
+	// },
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import './src/assets/style/common';
+
 </style>
