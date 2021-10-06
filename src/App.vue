@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header @search="searchFilm" />
-    <Films :films="films"/>
+    <Header @search="searchFilm"/>
+    <Films :films="films" :tvSeries="tvSeries"/>
   </div>
 </template>
 
@@ -18,7 +18,8 @@ export default {
   },
   data() {
     return {
-      films:[]
+      films:[],
+      tvSeries:[]
     }
   },
   methods: {
@@ -33,7 +34,29 @@ export default {
         .then( (response) => {
           this.films = response.data.results;
         });
+        axios.get('https://api.themoviedb.org/3/search/tv', {
+        params: {
+          api_key: '6e1f2787601fcd4236204e683f91fbbf',
+          query: query,
+          language: 'it-IT',
+        }
+      })
+        .then( (response) => {
+          this.tvSeries = response.data.results;
+        });
     },
+    // searchTv(query) {
+    //   axios.get('https://api.themoviedb.org/3/search/tv', {
+    //     params: {
+    //       api_key: '6e1f2787601fcd4236204e683f91fbbf',
+    //       query: query,
+    //       language: 'it-IT',
+    //     }
+    //   })
+    //     .then( (response) => {
+    //       this.tvSeries = response.data.results;
+    //     });
+    // },
   }
 }
 </script>

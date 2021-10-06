@@ -1,7 +1,7 @@
 <template>
     <header>
-            <input type="text" v-model="inputText" placeholder="Cerca un titolo...">
-            <button @click="$emit('search', inputText)">Search</button>
+        <input type="text" v-model="inputText" placeholder="Cerca un titolo...">
+        <button @click="$emit('search', inputText)">Search</button>
     </header>
 </template>
 
