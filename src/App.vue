@@ -33,7 +33,7 @@ export default {
         .then( (response) => {
           this.films = response.data.results;
         });
-    }
+    },
   }
 }
 </script>
