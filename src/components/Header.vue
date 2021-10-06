@@ -1,17 +1,14 @@
 <template>
-    <Header>
-        <form action="">
-            <input type="text"  placeholder="Cerca un titolo..." v-model="inputText">
-            <button  @click="$emit('
-            ', inputText)">Search</button>
-            
-        </form>
-    </Header>
+    <header>
+            <input type="text" v-model="inputText" placeholder="Cerca un titolo...">
+            <button @click="$emit('search', inputText)">Search</button>
+    </header>
 </template>
 
 <script>
 
 export default {
+    name: "Header",
     data() {
 		return {
 			inputText: ""
@@ -21,7 +18,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 Header{
     background-color: #000;

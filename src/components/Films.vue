@@ -1,8 +1,9 @@
 <template>
-
-        <div  class="films-container">
+    <ul  class="films-container">
+        <li >
             <Film :info="film" v-for="(film, index) in films" :key="index"/>
-        </div>
+        </li>
+    </ul>
 </template>
 
 <script>

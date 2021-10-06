@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Header @search="selectedMethod" />
-    <Films :films="films" />
+    <Header @search="searchFilm" />
+    <Films :films="films"/>
   </div>
 </template>
 
@@ -18,25 +18,23 @@ export default {
   },
   data() {
     return {
-      films:[],
-      selectedFilms: ""
+      films:[]
     }
   },
   methods: {
-    selectedMethod(query) {
-		axios.get('https://api.themoviedb.org/3/search/movie',{
-            params: {
-              api_key: '6e1f2787601fcd4236204e683f91fbbf',
-              query: query,
-              language: 'it-IT',
-            }
-          })
-          .then( (res) => {
-            // console.log(res.data);
-            this.films = res.data.results;
-          } )
+    searchFilm(query) {
+      axios.get('https://api.themoviedb.org/3/search/movie', {
+        params: {
+          api_key: '6e1f2787601fcd4236204e683f91fbbf',
+          query: query,
+          language: 'it-IT',
+        }
+      })
+        .then( (response) => {
+          this.films = response.data.results;
+        });
     }
-  },
+  }
 }
 </script>
 

@@ -11,10 +11,8 @@
 
 <script>
 export default {
-    name: 'Film',
-    props: {
-        info: Object
-    },
+    name: "Film",
+    props: ['info']
 }
 </script>
 
