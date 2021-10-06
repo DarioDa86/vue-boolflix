@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header @search="selectedMethod" />
-    <Films :transferFilms="selectedFilms" />
+    <Films :films="films" />
   </div>
 </template>
 
@@ -23,25 +23,24 @@ export default {
     }
   },
   methods: {
-    selectedMethod(text) {
-      this.selectedFilms = text;
-      axios.get('https://api.themoviedb.org/3/search/movie?api_key=e99307154c6dfb0b4750f6603256716d&query=ritorno+al+futuro')
+    selectedMethod(query) {
+		axios.get('https://api.themoviedb.org/3/search/movie',{
+            params: {
+              api_key: '6e1f2787601fcd4236204e683f91fbbf',
+              query: query,
+              language: 'it-IT',
+            }
+          })
           .then( (res) => {
+            // console.log(res.data);
             this.films = res.data.results;
           } )
     }
   },
-  // created() {
-	// 	axios
-	// 		.get("https://api.themoviedb.org/3/movie/550?api_key=6e1f2787601fcd4236204e683f91fbbf")
-	// 		.then( (res) => {
-	// 			this.films = res.data;
-	// 		});
-	// },
 }
 </script>
 
 <style lang="scss">
-@import './src/assets/style/common';
+@import './assets/style/common';
 
 </style>

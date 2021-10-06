@@ -1,15 +1,16 @@
 <template>
-    <div class="films">
-        <Film :info="elm"/>
-    </div>
+
+        <div  class="films-container">
+            <Film :info="film" v-for="(film, index) in films" :key="index"/>
+        </div>
 </template>
 
 <script>
 import Film from './Film.vue'
 
 export default {
-    name: 'films',
-    props: ['transferFilms'],
+    name: 'Films',
+    props: ['films'],
     components: {
         Film
     }
