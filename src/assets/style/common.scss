@@ -1,3 +1,8 @@
+@import './variables.scss';
+
+// Google font
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -5,6 +10,7 @@
 }
 
 body {
-    // background-color: #141414;
+    background-color: #101010;
     color: black;
+    font-family: $mainFont;
 }

@@ -1,7 +1,6 @@
 <template>
     <div class="films-container">
         <h2>I Film </h2>
-        <font-awesome-icon :icon="star"/>
         <font-awesome-icon :icon="['far', 'star']" />
         <font-awesome-icon :icon="['fas', 'star']" />
 
