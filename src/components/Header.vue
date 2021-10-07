@@ -5,7 +5,7 @@
         </div>
         <form class="search-bar">
             <input type="text" v-model="inputText" placeholder="Cerca un titolo...">
-            <span class="search-btn" @click.prevent="$emit('search', inputText)">Cerca</span>
+            <button class="search-btn" @click.prevent="$emit('search', inputText)">Cerca</button>
         </form>
     </header>
 </template>
@@ -55,7 +55,7 @@ Header{
             background-color: #db202c;
             color: #fff;
             padding: 10px 15px;
-            // border-radius: 3px;
+            border: none;
             margin-left: 10px;
             font-size: 18px;
             cursor: pointer;

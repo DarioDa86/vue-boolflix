@@ -11,6 +11,12 @@
 
 body {
     background-color: #101010;
-    color: black;
+    color: #fff;
     font-family: $mainFont;
+}
+
+.container {
+    width: $sizeContainer;
+    margin: 50px auto;
+    border: 1px solid #fff;
 }

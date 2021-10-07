@@ -7,8 +7,7 @@
             <li>{{info.title || info.name}}</li>
             <li>{{info.original_title || info.original_name}}</li>
             <li >{{info.original_language}} 
-                <img v-if="info.original_language != null" :src="flag(info.original_language)">
-                <img v-else src="`https://static.vecteezy.com/ti/vettori-gratis/p1/554325-icona-di-vettore-del-fumetto-del-punto-interrogativo-gratuito-vettoriale.jpg`" alt="">
+                <img :src="flag(info.original_language)">
             </li>
             <li>
                 <span class="star"
@@ -28,10 +27,18 @@
 export default {
     name: "Film",
     props: ['info'],
+    data() {
+        return {
+            noFlag: [ 'iu', 'jv', 'kg', 'ki','te', 'tl', 'kj', 'gu', 'ii', 'ik', 'ml', 'mr',  'nn', 'nr', 'pi', 'ps', 'sa', 'nb', 'nd', 'ng', 'sw',  'tw']
+        }
+    },
 
     methods: {
         flag(flagCode) {
-                return `https://www.unknown.nu/flags/images/${flagCode}-100`        
+                if ( this.noFlag.includes(flagCode) ) {
+                    return `https://upload.wikimedia.org/wikipedia/commons/thumb/e/ee/PACE-flag.svg/1200px-PACE-flag.svg.png`
+                }   else {return `https://www.unknown.nu/flags/images/${flagCode}-100`}
+                
             },
         starsNumber() {
             return Math.ceil(this.info.vote_average / 2);
