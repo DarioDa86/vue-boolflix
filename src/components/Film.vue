@@ -11,13 +11,15 @@
                 <img v-else src="`https://static.vecteezy.com/ti/vettori-gratis/p1/554325-icona-di-vettore-del-fumetto-del-punto-interrogativo-gratuito-vettoriale.jpg`" alt="">
             </li>
             <li>
-                <div v-for="(stars, index ) in starsNumber() " :key="index">
+                <span class="star"
+                    v-for="(stars, index ) in starsNumber() " :key="index">
                     <font-awesome-icon :icon="['fas', 'star']" />
-                </div>
+                </span>
 
-                <div v-for="(stars, index ) in ( 5 - starsNumber()) " :key="index">
+                <span class="star-border" 
+                    v-for="(stars, index ) in ( 5 - starsNumber()) " :key="index">
                     <font-awesome-icon :icon="['far', 'star']" />
-                </div>
+                </span>
             </li>
         </ul>
 </template>
@@ -39,5 +41,7 @@ export default {
 </script>
 
 <style>
+
+
 
 </style>
