@@ -1,6 +1,11 @@
 <template>
     <div class="films-container">
-        <h2>I Film</h2>
+        <h2>I Film </h2>
+        <font-awesome-icon :icon="star"/>
+        <font-awesome-icon :icon="['far', 'star']" />
+        <font-awesome-icon :icon="['fas', 'star']" />
+
+
         <ul>
             <li v-for="(film, index) in films" :key="index">
                 <Film :info="film" />

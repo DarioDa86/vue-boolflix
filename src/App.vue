@@ -45,18 +45,6 @@ export default {
           this.tvSeries = response.data.results;
         });
     },
-    // searchTv(query) {
-    //   axios.get('https://api.themoviedb.org/3/search/tv', {
-    //     params: {
-    //       api_key: '6e1f2787601fcd4236204e683f91fbbf',
-    //       query: query,
-    //       language: 'it-IT',
-    //     }
-    //   })
-    //     .then( (response) => {
-    //       this.tvSeries = response.data.results;
-    //     });
-    // },
   }
 }
 </script>
