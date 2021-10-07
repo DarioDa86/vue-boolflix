@@ -1,10 +1,12 @@
 <template>
     <div class="films-container">
+        <h2>I Film</h2>
         <ul>
             <li v-for="(film, index) in films" :key="index">
                 <Film :info="film" />
             </li>
         </ul>
+        <h2>Le serie TV</h2>
         <ul>
             <li v-for="(film, index) in tvSeries" :key="index">
                 <Film :info="film" />

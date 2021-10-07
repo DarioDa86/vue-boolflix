@@ -1,9 +1,12 @@
 <template>
         <ul class="film-card">
+            <li>
+                <img :src="`https://image.tmdb.org/t/p/w342${info.poster_path}`">
+            </li>
             <li>{{info.title || info.name}}</li>
             <li>{{info.original_title || info.original_name}}</li>
             <li >{{info.original_language}} 
-                <img :src="flag(info.original_language)" alt="">
+                <img :src="flag(info.original_language)">
             </li>
             <li>{{info.vote_average}}</li>
         </ul>
@@ -16,8 +19,11 @@ export default {
 
     methods: {
         flag(flagCode) {
-            return `https://www.unknown.nu/flags/images/${flagCode}-100`        
-            }
+                return `https://www.unknown.nu/flags/images/${flagCode}-100`        
+            },
+        image(imageCode) {
+            return `${imageCode}`
+        }
     }
 }
 </script>
