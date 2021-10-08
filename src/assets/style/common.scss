@@ -13,10 +13,10 @@ body {
     background-color: #101010;
     color: #fff;
     font-family: $mainFont;
+    font-size: 18px;
 }
 
 .container {
     width: $sizeContainer;
-    margin: 50px auto;
-    border: 1px solid #fff;
+    margin: 0 auto;
 }

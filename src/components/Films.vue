@@ -1,20 +1,18 @@
 <template>
-    <div class=" container">
+    <div class="container">
         <h2 class="film-title">I Film </h2>
-        <font-awesome-icon :icon="['far', 'star']" />
-        <font-awesome-icon :icon="['fas', 'star']" />
+        <div class="results-container">
+            <!-- <font-awesome-icon :icon="['far', 'star']" />
+            <font-awesome-icon :icon="['fas', 'star']" /> -->
+        <div  class="results-container">
+            <Film  v-for="(film, index) in films" :key="index" :info="film" />
+        </div>
 
-        <ul>
-            <li v-for="(film, index) in films" :key="index">
-                <Film :info="film" />
-            </li>
-        </ul>
+        </div>
         <h2>Le serie TV</h2>
-        <ul>
-            <li v-for="(film, index) in tvSeries" :key="index">
-                <Film :info="film" />
-            </li>
-        </ul>
+        <div class="results-container">
+            <Film v-for="(film, index) in tvSeries" :key="index" :info="film" />
+        </div>
     </div>
 </template>
 
@@ -31,6 +29,21 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+
+h2 {
+font-size: 40px;
+margin: 30px 0;
+}
+
+.results-container {
+    display: flex;
+    flex-wrap: wrap;
+    
+    li {
+        list-style: none;
+    }
+}
+
 
 </style>
